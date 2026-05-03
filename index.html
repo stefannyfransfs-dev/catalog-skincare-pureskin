@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pure Skin | Skincare Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div>
+        <p class="brand-kicker">Skincare Catalog Project</p>
+        <a href="#home" class="brand">Pure Skin</a>
+      </div>
+
+      <nav class="site-nav">
+        <a href="#home">Beranda</a>
+        <a href="#concept">Konsep</a>
+        <a href="#catalog">Katalog</a>
+        <a href="#system">Filter</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="section-tag">Website UTS</p>
+          <h1>Pure Skin, katalog skincare yang membantu pelanggan mencari produk sesuai kondisi kulit.</h1>
+          <p class="hero-text">
+            Web ini dirancang untuk menampilkan produk skincare secara rapi, modern, dan mudah dicari lewat fitur
+            pencarian serta filter berdasarkan kategori produk dan kebutuhan kulit pelanggan.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#catalog">Lihat Katalog</a>
+            <a class="button secondary" href="#system">Lihat Sistem Filter</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <p class="card-label">Fokus Perancangan</p>
+          <ul class="hero-points">
+            <li>Layout katalog produk yang jelas</li>
+            <li>Search berdasarkan nama produk</li>
+            <li>Filter berdasarkan kondisi kulit</li>
+            <li>Siap ganti foto katalog sendiri</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="concept" id="concept">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-tag">Konsep Website</p>
+          <h2>Company profile sederhana dengan katalog produk interaktif.</h2>
+        </div>
+
+        <div class="concept-grid">
+          <article class="info-card">
+            <h3>Nama Website</h3>
+            <p>Pure Skin</p>
+          </article>
+
+          <article class="info-card">
+            <h3>Jenis Website</h3>
+            <p>Company profile + katalog skincare</p>
+          </article>
+
+          <article class="info-card">
+            <h3>Target Pengguna</h3>
+            <p>Pelanggan yang ingin mencari produk sesuai kebutuhan kulit</p>
+          </article>
+
+          <article class="info-card">
+            <h3>Menu Utama</h3>
+            <p>Beranda, Konsep, Katalog, Filter, Kontak</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="system" id="system">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-tag">Sistem Search & Filter</p>
+          <h2>Pelanggan bisa mencari produk lebih cepat sesuai masalah kulit.</h2>
+        </div>
+
+        <div class="filter-panel">
+          <label class="search-box">
+            <span>Search produk</span>
+            <input type="search" id="searchInput" placeholder="Cari moisturizer, serum, brightening..." />
+          </label>
+
+          <div class="filter-group">
+            <p>Kategori</p>
+            <div class="chip-list">
+              <button class="chip active" data-filter-group="category" data-filter-value="all">Semua</button>
+              <button class="chip" data-filter-group="category" data-filter-value="moisturizer">Moisturizer</button>
+              <button class="chip" data-filter-group="category" data-filter-value="sunscreen">Sunscreen</button>
+              <button class="chip" data-filter-group="category" data-filter-value="serum">Serum</button>
+              <button class="chip" data-filter-group="category" data-filter-value="toner">Toner</button>
+              <button class="chip" data-filter-group="category" data-filter-value="lip">Lip Care</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <p>Kondisi Kulit</p>
+            <div class="chip-list">
+              <button class="chip active" data-filter-group="skin" data-filter-value="all">Semua</button>
+              <button class="chip" data-filter-group="skin" data-filter-value="acne">Acne</button>
+              <button class="chip" data-filter-group="skin" data-filter-value="normal">Normal</button>
+              <button class="chip" data-filter-group="skin" data-filter-value="brightening">Brightening</button>
+              <button class="chip" data-filter-group="skin" data-filter-value="anti-aging">Anti-aging</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="system-note">
+          <p>
+            Konsep filter: pelanggan dapat mengetik nama produk di kolom search, lalu memilih kategori produk dan
+            kondisi kulit untuk mempersempit hasil pencarian.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <div class="container">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="section-tag">Katalog Produk</p>
+            <h2>Contoh isi katalog Pure Skin</h2>
+          </div>
+          <p class="result-text"><span id="resultCount">10</span> produk ditemukan</p>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+          <article class="product-card" data-name="Centella Calm Moisturizer" data-category="moisturizer" data-skin="acne">
+            <div class="product-image">Foto katalog kamu</div>
+            <div class="product-body">
+              <span class="product-type">Moisturizer</span>
+              <h3>Centella Calm Moisturizer</h3>
+              <p>Menenangkan kulit berjerawat dengan centella dan cica.</p>
+              <div class="tag-row">
+                <span>Acne</span>
+                <span>Centella</span>
+                <span>Cica</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-name="Ceramide Daily Moisturizer" data-category="moisturizer" data-skin="normal">
+            <div class="product-image">Foto katalog kamu</div>
+            <div class="product-body">
+              <span class="product-type">Moisturizer</span>
+              <h3>Ceramide Daily Moisturizer</h3>
+              <p>Menjaga skin barrier tetap sehat untuk kulit normal.</p>
+              <div class="tag-row">
+                <span>Normal</span>
+                <span>Ceramide</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-name="Niacinamide Glow Moisturizer" data-category="moisturizer" data-skin="brightening">
+            <div class="product-image">Foto katalog kamu</div>
+            <div class="product-body">
+              <span class="product-type">Moisturizer</span>
+              <h3>Niacinamide Glow Moisturizer</h3>
+              <p>Membantu kulit tampak lebih cerah dan lembap.</p>
+              <div class="tag-row">
+                <span>Brightening</span>
+                <span>Niacinamide</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-name="Retinol Repair Moisturizer" data-category="moisturizer" data-skin="anti-aging">
+            <div class="product-image">Foto katalog kamu</div>
+            <div class="product-body">
+              <span class="product-type">Moisturizer</span>
+              <h3>Retinol Repair Moisturizer</h3>
+              <p>Menyasar garis halus dengan formula anti-aging ringan.</p>
+              <div class="tag-row">
+                <span>Anti-aging</span>
+                <span>Retinol</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-name="Acne Guard Sunscreen" data-category="sunscreen" data-skin="acne">
+            <div class="product-image">Foto katalog kamu</div>
+            <div class="product-body">
+              <span class="product-type">Sunscreen</span>
+              <h3>Acne Guard Sunscreen</h3>
+              <p>Proteksi UV ringan untuk kulit acne-prone.</p>
+              <div class="tag-row">
+                <span>Acne</span>
+                <span>SPF</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-name="Glow Shield Sunscreen" data-category="sunscreen" data-skin="brightening">
+            <div class="product-image">Foto katalog kamu</div>
+            <div class="product-body">
+              <span class="product-type">Sunscreen</span>
+              <h3>Glow Shield Sunscreen</h3>
+              <p>Sunscreen dengan efek cerah alami untuk pemakaian harian.</p>
+              <div class="tag-row">
+                <span>Brightening</span>
+                <span>Niacinamide</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-name="Cica Recovery Serum" data-category="serum" data-skin="acne">
+            <div class="product-image">Foto katalog kamu</div>
+            <div class="product-body">
+              <span class="product-type">Serum</span>
+              <h3>Cica Recovery Serum</h3>
+              <p>Serum soothing untuk membantu menenangkan kemerahan.</p>
+              <div class="tag-row">
+                <span>Acne</span>
+                <span>Cica</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-name="Radiance Serum" data-category="serum" data-skin="brightening">
+            <div class="product-image">Foto katalog kamu</div>
+            <div class="product-body">
+              <span class="product-type">Serum</span>
+              <h3>Radiance Serum</h3>
+              <p>Membantu membuat kulit tampak lebih glowing dan merata.</p>
+              <div class="tag-row">
+                <span>Brightening</span>
+                <span>Niacinamide</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-name="Hydra Balance Toner" data-category="toner" data-skin="normal">
+            <div class="product-image">Foto katalog kamu</div>
+            <div class="product-body">
+              <span class="product-type">Toner</span>
+              <h3>Hydra Balance Toner</h3>
+              <p>Toner ringan untuk menjaga kulit tetap seimbang dan segar.</p>
+              <div class="tag-row">
+                <span>Normal</span>
+                <span>Hydrating</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-name="Gloss Lip Serum" data-category="lip" data-skin="normal">
+            <div class="product-image">Foto katalog kamu</div>
+            <div class="product-body">
+              <span class="product-type">Lip Serum</span>
+              <h3>Gloss Lip Serum</h3>
+              <p>Perawatan bibir sederhana untuk melembapkan dan memberi kilau.</p>
+              <div class="tag-row">
+                <span>Lip Care</span>
+                <span>Daily Use</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="upload-guide">
+      <div class="container guide-card">
+        <div>
+          <p class="section-tag">Catatan Gambar</p>
+          <h2>Kamu bisa ganti foto katalog sendiri kapan saja.</h2>
+        </div>
+        <p>
+          Nanti tinggal ganti bagian kotak gambar dengan tag
+          <code>&lt;img src="images/nama-foto.jpg" alt="Nama Produk"&gt;</code>.
+          Jadi kamu bisa pilih foto dari galeri atau media internal milikmu lalu masukkan ke folder project.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-wrap">
+      <div>
+        <p class="brand-kicker">Pure Skin</p>
+        <h2>Skincare catalog for healthy and confident skin.</h2>
+      </div>
+      <div class="footer-info">
+        <p>Instagram: @pureskin</p>
+        <p>Email: hello@pureskin.com</p>
+        <p>Alamat: Indonesia</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const chips = document.querySelectorAll(".chip");
+    const productCards = document.querySelectorAll(".product-card");
+    const resultCount = document.getElementById("resultCount");
+
+    const activeFilters = {
+      category: "all",
+      skin: "all"
+    };
+
+    function updateProducts() {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      productCards.forEach((card) => {
+        const name = card.dataset.name.toLowerCase();
+        const category = card.dataset.category;
+        const skin = card.dataset.skin;
+
+        const matchesSearch = name.includes(searchTerm);
+        const matchesCategory =
+          activeFilters.category === "all" || activeFilters.category === category;
+        const matchesSkin =
+          activeFilters.skin === "all" || activeFilters.skin === skin;
+
+        if (matchesSearch && matchesCategory && matchesSkin) {
+          card.style.display = "grid";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      resultCount.textContent = visibleCount;
+    }
+
+    searchInput.addEventListener("input", updateProducts);
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const group = chip.dataset.filterGroup;
+        const value = chip.dataset.filterValue;
+
+        document
+          .querySelectorAll(`.chip[data-filter-group="${group}"]`)
+          .forEach((button) => button.classList.remove("active"));
+
+        chip.classList.add("active");
+        activeFilters[group] = value;
+        updateProducts();
+      });
+    });
+  </script>
+</body>
+</html>
