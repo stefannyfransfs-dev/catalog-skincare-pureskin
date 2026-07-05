@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure Skin | Review</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { cream: '#fbf6f0', blush: '#ead7c4', cocoa: '#2e241f', taupe: '#72645c', terracotta: '#a86f4d', espresso: '#7e4f33' }, fontFamily: { serif: ['DM Serif Display', 'serif'], sans: ['Manrope', 'sans-serif'] } } } }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-cream text-cocoa font-sans">
+  <header class="sticky top-0 z-50 border-b border-[#dfd2c7]/80 bg-cream/90 backdrop-blur-xl">
+    <div class="mx-auto flex w-full max-w-6xl flex-col px-4 gap-4 py-4 md:flex-row md:items-center md:justify-between">
+      <a href="index.html" class="flex items-center gap-3"><img src="logo pure skin.jpeg" alt="Logo Pure Skin" class="h-14 w-14 rounded-full object-cover ring-2 ring-blush"><div><p class="text-xs font-bold uppercase tracking-[.22em] text-terracotta">Pure Skin</p><h1 class="font-serif text-3xl leading-none">Pure Skin</h1></div></a>
+      <nav class="flex flex-wrap gap-3 text-sm font-bold text-taupe md:gap-6"><a class="hover:text-terracotta" href="index.html">Beranda</a><a class="hover:text-terracotta" href="catalog.html">Katalog</a><a class="text-terracotta" href="review.html">Review</a></nav>
+    </div>
+  </header>
+
+  <main class="mx-auto w-full max-w-6xl px-4 py-14">
+    <section class="mb-10">
+      <p class="text-xs font-bold uppercase tracking-[.22em] text-terracotta">Review Customer</p>
+      <h2 class="mt-3 font-serif text-5xl leading-tight md:text-6xl">Bagikan pengalaman kulitmu.</h2>
+      <p class="mt-4 max-w-3xl text-lg leading-8 text-taupe">Review akan tersimpan di browser menggunakan localStorage dan ditampilkan pada tabel review.</p>
+    </section>
+
+    <section class="grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
+      <form id="reviewForm" class="grid gap-5 rounded-3xl border border-[#dfd2c7] bg-white/75 p-6 shadow-xl shadow-[#563a2b]/10">
+        <label class="grid gap-2 font-bold">Nama Customer<input type="text" id="customerName" placeholder="Contoh: Stefanny" required class="rounded-2xl border border-[#dfd2c7] px-4 py-3 outline-none focus:border-terracotta"></label>
+        <label class="grid gap-2 font-bold">Kondisi Kulit<select id="customerSkin" required class="rounded-2xl border border-[#dfd2c7] px-4 py-3 outline-none focus:border-terracotta"><option value="">Pilih Kondisi Kulit</option><option value="normal">Normal</option><option value="dry">Dry</option><option value="acne">Acne</option><option value="brightening">Kusam / Brightening</option><option value="anti-aging">Anti-aging</option></select></label>
+        <label class="grid gap-2 font-bold">Produk yang Dicari<select id="customerCategory" required class="rounded-2xl border border-[#dfd2c7] px-4 py-3 outline-none focus:border-terracotta"><option value="">Pilih Kategori</option><option value="moisturizer">Moisturizer</option><option value="serum">Serum</option><option value="toner">Toner</option><option value="sunscreen">Sunscreen</option><option value="lip">Lip Care / Lip Oil</option></select></label>
+        <label class="grid gap-2 font-bold">Rating<select id="customerRating" required class="rounded-2xl border border-[#dfd2c7] px-4 py-3 outline-none focus:border-terracotta"><option value="">Pilih Rating</option><option value="5">5 Bintang</option><option value="4">4 Bintang</option><option value="3">3 Bintang</option><option value="2">2 Bintang</option><option value="1">1 Bintang</option></select></label>
+        <label class="grid gap-2 font-bold">Komentar / Keluhan Kulit<textarea id="customerComment" rows="4" placeholder="Contoh: Kulitku kering dan butuh lip oil yang natural." required class="resize-y rounded-2xl border border-[#dfd2c7] px-4 py-3 outline-none focus:border-terracotta"></textarea></label>
+        <button type="submit" id="submitReview" class="rounded-full bg-terracotta px-6 py-3 font-bold text-white transition hover:bg-espresso">Kirim Review & Lihat Rekomendasi</button>
+      </form>
+
+      <div class="overflow-x-auto rounded-3xl border border-[#dfd2c7] bg-white/75 shadow-xl shadow-[#563a2b]/10">
+        <table class="min-w-[760px] w-full border-collapse text-left">
+          <thead class="bg-terracotta text-white"><tr><th class="p-4">No</th><th class="p-4">Nama</th><th class="p-4">Kondisi Kulit</th><th class="p-4">Produk Dicari</th><th class="p-4">Rating</th><th class="p-4">Komentar</th></tr></thead>
+          <tbody id="reviewTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#dfd2c7] bg-white/60 py-10"><div class="mx-auto flex w-full max-w-6xl flex-col px-4 gap-4 md:flex-row md:items-end md:justify-between"><div><p class="text-xs font-bold uppercase tracking-[.22em] text-terracotta">Pure Skin</p><h2 class="mt-2 max-w-2xl font-serif text-3xl">The Essence of Purity: Sophistication in Every Drop</h2></div><div class="text-taupe"><p>Instagram: @pureskin</p><p>Email: hello@pureskin.com</p><p>Alamat: Indonesia</p></div></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

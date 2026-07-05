@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure Skin | Detail Produk</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { cream: '#fbf6f0', blush: '#ead7c4', cocoa: '#2e241f', taupe: '#72645c', terracotta: '#a86f4d', espresso: '#7e4f33' }, fontFamily: { serif: ['DM Serif Display', 'serif'], sans: ['Manrope', 'sans-serif'] } } } }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-cream text-cocoa font-sans">
+  <header class="sticky top-0 z-50 border-b border-[#dfd2c7]/80 bg-cream/90 backdrop-blur-xl">
+    <div class="mx-auto flex w-full max-w-6xl flex-col px-4 gap-4 py-4 md:flex-row md:items-center md:justify-between">
+      <a href="index.html" class="flex items-center gap-3"><img src="logo pure skin.jpeg" alt="Logo Pure Skin" class="h-14 w-14 rounded-full object-cover ring-2 ring-blush"><div><p class="text-xs font-bold uppercase tracking-[.22em] text-terracotta">Pure Skin</p><h1 class="font-serif text-3xl leading-none">Pure Skin</h1></div></a>
+      <nav class="flex flex-wrap gap-3 text-sm font-bold text-taupe md:gap-6"><a class="hover:text-terracotta" href="index.html">Beranda</a><a class="text-terracotta" href="catalog.html">Katalog</a><a class="hover:text-terracotta" href="review.html">Review</a></nav>
+    </div>
+  </header>
+
+  <main class="mx-auto w-full max-w-6xl px-4 py-14">
+    <a href="catalog.html" class="inline-flex rounded-full bg-blush px-5 py-3 font-bold text-cocoa transition hover:bg-terracotta hover:text-white">Kembali ke katalog</a>
+    <section id="detailContent" class="mt-8"></section>
+  </main>
+
+  <footer class="border-t border-[#dfd2c7] bg-white/60 py-10"><div class="mx-auto flex w-full max-w-6xl flex-col px-4 gap-4 md:flex-row md:items-end md:justify-between"><div><p class="text-xs font-bold uppercase tracking-[.22em] text-terracotta">Pure Skin</p><h2 class="mt-2 max-w-2xl font-serif text-3xl">The Essence of Purity: Sophistication in Every Drop</h2></div><div class="text-taupe"><p>Instagram: @pureskin</p><p>Email: hello@pureskin.com</p><p>Alamat: Indonesia</p></div></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

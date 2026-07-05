@@ -1,0 +1,8 @@
+html { scroll-behavior: smooth; }
+body {
+  background:
+    radial-gradient(circle at top left, rgba(234, 215, 196, .9), transparent 32%),
+    linear-gradient(180deg, #fbf6f0 0%, #f5eee7 100%);
+}
+img { display: block; }
+button, input, select, textarea { font: inherit; }

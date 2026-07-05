@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure Skin | Beranda</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { cream: '#fbf6f0', blush: '#ead7c4', cocoa: '#2e241f', taupe: '#72645c', terracotta: '#a86f4d', espresso: '#7e4f33' }, fontFamily: { serif: ['DM Serif Display', 'serif'], sans: ['Manrope', 'sans-serif'] } } } }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-cream text-cocoa font-sans">
+  <header class="sticky top-0 z-50 border-b border-[#dfd2c7]/80 bg-cream/90 backdrop-blur-xl">
+    <div class="mx-auto flex w-full max-w-6xl flex-col px-4 gap-4 py-4 md:flex-row md:items-center md:justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="logo pure skin.jpeg" alt="Logo Pure Skin" class="h-14 w-14 rounded-full object-cover ring-2 ring-blush">
+        <div><p class="text-xs font-bold uppercase tracking-[.22em] text-terracotta">Pure Skin</p><h1 class="font-serif text-3xl leading-none">Pure Skin</h1></div>
+      </a>
+      <nav class="flex flex-wrap gap-3 text-sm font-bold text-taupe md:gap-6">
+        <a class="text-terracotta" href="index.html">Beranda</a>
+        <a class="hover:text-terracotta" href="catalog.html">Katalog</a>
+        <a class="hover:text-terracotta" href="review.html">Review</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="beranda" class="mx-auto grid w-full max-w-6xl px-4 gap-10 py-16 md:grid-cols-[1.15fr_.85fr] md:items-center md:py-24">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[.22em] text-terracotta">Skincare Information System</p>
+        <h2 class="mt-4 max-w-xl font-serif text-5xl leading-tight md:text-7xl">Pure Skin, perawatan lembut untuk kulit percaya diri.</h2>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-taupe">Pure Skin adalah website katalog skincare sederhana yang membantu customer melihat produk, mencari berdasarkan kebutuhan kulit, membaca detail, dan membagikan review secara praktis.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="catalog.html" class="rounded-full bg-terracotta px-6 py-3 font-bold text-white shadow-lg shadow-terracotta/20 transition hover:bg-espresso">Lihat Katalog</a>
+          <a href="review.html" class="rounded-full bg-blush px-6 py-3 font-bold text-cocoa transition hover:bg-terracotta hover:text-white">Beri Review</a>
+        </div>
+      </div>
+      <div class="rounded-3xl border border-[#dfd2c7] bg-white/70 p-5 shadow-2xl shadow-[#563a2b]/10">
+        <img src="logo pure skin.jpeg" alt="Pure Skin" class="aspect-square w-full rounded-2xl object-cover">
+      </div>
+    </section>
+
+    <section id="tentang" class="border-y border-[#dfd2c7]/70 bg-white/45 py-16">
+      <div class="mx-auto w-full max-w-6xl px-4">
+        <p class="text-xs font-bold uppercase tracking-[.22em] text-terracotta">Tentang Pure Skin</p>
+        <h2 class="mt-3 max-w-4xl font-serif text-4xl leading-tight md:text-5xl">Asal usul Pure Skin, brand skincare yang hadir untuk merawat kulit sehat setiap hari.</h2>
+        <div class="mt-8 grid gap-4 md:grid-cols-4">
+          <article class="rounded-2xl border border-[#dfd2c7] bg-cream/80 p-6"><span class="font-bold text-terracotta">01</span><h3 class="mt-4 text-xl font-bold">Awal Mula</h3><p class="mt-3 leading-7 text-taupe">Pure Skin berawal dari kepedulian terhadap kebutuhan kulit yang berbeda-beda pada setiap orang.</p></article>
+          <article class="rounded-2xl border border-[#dfd2c7] bg-cream/80 p-6"><span class="font-bold text-terracotta">02</span><h3 class="mt-4 text-xl font-bold">Tujuan Brand</h3><p class="mt-3 leading-7 text-taupe">Membantu pelanggan menemukan perawatan yang nyaman, ringan, dan sesuai kondisi kulit.</p></article>
+          <article class="rounded-2xl border border-[#dfd2c7] bg-cream/80 p-6"><span class="font-bold text-terracotta">03</span><h3 class="mt-4 text-xl font-bold">Nilai Utama</h3><p class="mt-3 leading-7 text-taupe">Mengutamakan produk yang gentle, mudah digunakan, dan mendukung rutinitas harian.</p></article>
+          <article class="rounded-2xl border border-[#dfd2c7] bg-cream/80 p-6"><span class="font-bold text-terracotta">04</span><h3 class="mt-4 text-xl font-bold">Harapan</h3><p class="mt-3 leading-7 text-taupe">Setiap customer dapat merasa lebih percaya diri dengan kulit yang sehat dan terawat.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="mx-auto w-full max-w-6xl px-4 py-16">
+      <p class="text-xs font-bold uppercase tracking-[.22em] text-terracotta">Features</p>
+      <h2 class="mt-3 font-serif text-4xl md:text-5xl">Fitur utama sistem Pure Skin.</h2>
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        <div class="rounded-2xl bg-white/70 p-6 shadow-xl shadow-[#563a2b]/10"><h3 class="text-xl font-bold">Katalog Produk</h3><p class="mt-3 text-taupe">Menampilkan produk lengkap dengan gambar, harga, rating, dan detail produk.</p></div>
+        <div class="rounded-2xl bg-white/70 p-6 shadow-xl shadow-[#563a2b]/10"><h3 class="text-xl font-bold">Search, Filter, Sorting</h3><p class="mt-3 text-taupe">Customer dapat mencari produk sesuai kategori, kondisi kulit, harga, dan urutan.</p></div>
+        <div class="rounded-2xl bg-white/70 p-6 shadow-xl shadow-[#563a2b]/10"><h3 class="text-xl font-bold">Review Customer</h3><p class="mt-3 text-taupe">Review tersimpan dengan localStorage dan ditampilkan dalam tabel review.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#dfd2c7] bg-white/60 py-10">
+    <div class="mx-auto flex w-full max-w-6xl flex-col px-4 gap-4 md:flex-row md:items-end md:justify-between">
+      <div><p class="text-xs font-bold uppercase tracking-[.22em] text-terracotta">Pure Skin</p><h2 class="mt-2 max-w-2xl font-serif text-3xl">The Essence of Purity: Sophistication in Every Drop</h2></div>
+      <div class="text-taupe"><p>Instagram: @pureskin</p><p>Email: hello@pureskin.com</p><p>Alamat: Indonesia</p></div>
+    </div>
+  </footer>
+</body>
+</html>
