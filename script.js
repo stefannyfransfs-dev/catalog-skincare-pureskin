@@ -325,158 +325,85 @@ function initDetailPage() {
   const detailContent = document.getElementById("detailContent");
   if (!detailContent) return;
 
-  const productId = getProductId();
-  const product = products[productId];
+  const product = products[getProductId()];
 
   if (!product) {
-    detailContent.innerHTML = `
-      <div class="rounded-3xl border border-[#dfd2c7] bg-white/75 p-8 text-center">
-        <h2 class="font-serif text-4xl">Produk tidak ditemukan.</h2>
-        <a href="catalog.html" class="mt-6 inline-flex rounded-full bg-terracotta px-5 py-3 font-bold text-white">
-          Kembali ke katalog
-        </a>
-      </div>
-    `;
+    detailContent.innerHTML =
+      '<div class="rounded-3xl border border-[#dfd2c7] bg-white/75 p-8 text-center">' +
+        '<h2 class="font-serif text-4xl">Produk tidak ditemukan.</h2>' +
+        '<a href="catalog.html" class="mt-6 inline-flex rounded-full bg-terracotta px-5 py-3 font-bold text-white">' +
+          'Kembali ke Katalog' +
+        '</a>' +
+      '</div>';
     return;
   }
 
-  const tags = getProductSkins(product)
-    .map(function (skin) {
-      return `
-        <span class="inline-flex items-center justify-center rounded-full bg-blush px-4 py-2 text-sm font-bold leading-none text-espresso">
-          ${formatLabel(skin)}
-        </span>
-      `;
-    })
-    .join("");
+  detailContent.innerHTML =
+    '<div class="grid gap-8 lg:grid-cols-[.95fr_1.05fr] lg:items-start">' +
 
-  detailContent.innerHTML = `
-    <div class="grid gap-10 md:grid-cols-2 md:items-start">
-      
-      <div class="overflow-hidden rounded-3xl bg-white shadow-sm">
-        <img 
-          src="${product.image}" 
-          alt="${product.name}" 
-          class="h-[420px] w-full object-cover"
-        >
-      </div>
+      '<div class="overflow-hidden rounded-3xl border border-[#dfd2c7] bg-white/75 shadow-xl shadow-[#563a2b]/10">' +
+        '<img src="' + safeText(product.image) + '" alt="' + safeText(product.name) + '" class="max-h-[620px] w-full object-cover">' +
+      '</div>' +
 
-      <div class="flex flex-col">
-        <p class="text-xs font-bold uppercase tracking-[.18em] text-terracotta">
-          ${formatLabel(product.category)}
-        </p>
+      '<div class="rounded-3xl border border-[#dfd2c7] bg-white/75 p-6 shadow-xl shadow-[#563a2b]/10">' +
 
-        <h2 class="mt-3 font-serif text-4xl text-cocoa">
-          ${product.name}
-        </h2>
+        '<p class="text-xs font-bold uppercase tracking-[.22em] text-terracotta">' +
+          'Detail Produk' +
+        '</p>' +
 
-        <p class="mt-5 leading-8 text-taupe">
-          ${product.description}
-        </p>
+        '<h2 class="mt-3 font-serif text-5xl leading-tight text-cocoa">' +
+          safeText(product.name) +
+        '</h2>' +
 
-        <p class="mt-6 text-3xl font-bold text-terracotta">
-          ${formatRupiah(product.price)}
-        </p>
+        '<p class="mt-4 leading-8 text-taupe">' +
+          safeText(product.description) +
+        '</p>' +
 
-        <p class="mt-2 font-bold text-taupe">
-          Rating ${product.rating}/5
-        </p>
+        '<div class="mt-6 grid gap-3 sm:grid-cols-2">' +
 
-        <div class="mt-5 flex flex-wrap items-center gap-2">
-          ${tags}
-        </div>
+          '<div class="rounded-2xl bg-cream p-4">' +
+            '<p class="text-sm font-bold text-taupe">Harga</p>' +
+            '<p class="text-2xl font-bold text-espresso">' +
+              formatRupiah(product.price) +
+            '</p>' +
+          '</div>' +
 
-        <div class="mt-8 rounded-3xl bg-white/70 p-6">
-          <h3 class="font-serif text-2xl text-cocoa">Kandungan Utama</h3>
-          <p class="mt-3 leading-7 text-taupe">${product.ingredients}</p>
+          '<div class="rounded-2xl bg-cream p-4">' +
+            '<p class="text-sm font-bold text-taupe">Rating</p>' +
+            '<p class="text-2xl font-bold text-terracotta">' +
+              product.rating + '/5' +
+            '</p>' +
+          '</div>' +
 
-          <h3 class="mt-6 font-serif text-2xl text-cocoa">Manfaat Produk</h3>
-          <p class="mt-3 leading-7 text-taupe">${product.benefits}</p>
-        </div>
-      </div>
-    </div>
-  `;
-}
+        '</div>' +
 
-function initReviewPage() {
-  const reviewForm = document.getElementById("reviewForm");
-  const reviewTableBody = document.getElementById("reviewTableBody");
+        '<div class="mt-7 border-t border-[#dfd2c7] pt-6">' +
 
-  if (!reviewForm || !reviewTableBody) return;
+          '<h3 class="font-poppins text-2xl font-semibold text-cocoa">' +
+            'Ingredients' +
+          '</h3>' +
 
-  const customerName = document.getElementById("customerName");
-  const customerSkin = document.getElementById("customerSkin");
-  const customerCategory = document.getElementById("customerCategory");
-  const customerRating = document.getElementById("customerRating");
-  const customerComment = document.getElementById("customerComment");
+          '<p class="mt-3 font-sans leading-7 text-taupe">' +
+            safeText(product.ingredients) +
+          '</p>' +
 
-  function renderReviews() {
-    reviewTableBody.innerHTML = reviews.map(function (review, index) {
-      return '<tr class="border-b border-[#dfd2c7]">' +
-        '<td class="p-4">' + (index + 1) + '</td>' +
-        '<td class="p-4 font-bold">' + safeText(review.name) + '</td>' +
-        '<td class="p-4">' + formatLabel(review.skin) + '</td>' +
-        '<td class="p-4">' + formatLabel(review.category) + '</td>' +
-        '<td class="p-4 font-bold text-terracotta">' + review.rating + '/5</td>' +
-        '<td class="p-4 text-taupe">' + safeText(review.comment) + '</td>' +
-      '</tr>';
-    }).join("");
-  }
+          '<h3 class="mt-6 font-poppins text-2xl font-semibold text-cocoa">' +
+            'Manfaat' +
+          '</h3>' +
 
-  function clearReviewReminders() {
-    customerSkin.setCustomValidity("");
-    customerCategory.setCustomValidity("");
-  }
+          '<p class="mt-3 font-sans leading-7 text-taupe">' +
+            safeText(product.benefits) +
+          '</p>' +
 
-  function checkReviewChoices() {
-    customerSkin.setCustomValidity(
-      customerSkin.value
-        ? ""
-        : "Kondisi kulit wajib dipilih terlebih dahulu."
-    );
+        '</div>' +
 
-    customerCategory.setCustomValidity(
-      customerCategory.value
-        ? ""
-        : "Produk yang dicari wajib dipilih terlebih dahulu."
-    );
+        '<a href="catalog.html" class="mt-8 flex w-full justify-center rounded-full bg-terracotta px-6 py-4 font-bold text-white transition hover:bg-espresso">' +
+          'Kembali ke Katalog' +
+        '</a>' +
 
-    return customerSkin.value && customerCategory.value;
-  }
+      '</div>' +
 
-  reviewForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    if (!checkReviewChoices()) {
-      reviewForm.reportValidity();
-      return;
-    }
-
-    const reviewData = {
-      name: customerName.value.trim(),
-      skin: customerSkin.value,
-      category: customerCategory.value,
-      rating: customerRating.value,
-      comment: customerComment.value.trim()
-    };
-
-    reviews.push(reviewData);
-
-    saveReviewsToStorage();
-
-    reviewForm.reset();
-
-    clearReviewReminders();
-
-    renderReviews();
-
-    window.location.href = "catalog.html";
-  });
-
-  customerSkin.addEventListener("change", checkReviewChoices);
-  customerCategory.addEventListener("change", checkReviewChoices);
-
-  renderReviews();
+    '</div>';
 }
 
 initCatalogPage();
