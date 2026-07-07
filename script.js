@@ -323,79 +323,79 @@ function updateActiveButtons() {
 
 function initDetailPage() {
   const detailContent = document.getElementById("detailContent");
-
   if (!detailContent) return;
 
-  const product = products[getProductId()];
+  const productId = getProductId();
+  const product = products[productId];
 
   if (!product) {
-    detailContent.innerHTML =
-      '<div class="rounded-3xl border border-[#dfd2c7] bg-white/75 p-8 text-center">' +
-        '<h2 class="font-serif text-4xl">Produk tidak ditemukan.</h2>' +
-        '<a href="catalog.html" class="mt-6 inline-flex rounded-full bg-terracotta px-5 py-3 font-bold text-white">Kembali ke katalog</a>' +
-      '</div>';
-
+    detailContent.innerHTML = `
+      <div class="rounded-3xl border border-[#dfd2c7] bg-white/75 p-8 text-center">
+        <h2 class="font-serif text-4xl">Produk tidak ditemukan.</h2>
+        <a href="catalog.html" class="mt-6 inline-flex rounded-full bg-terracotta px-5 py-3 font-bold text-white">
+          Kembali ke katalog
+        </a>
+      </div>
+    `;
     return;
   }
 
   const tags = getProductSkins(product)
     .map(function (skin) {
-      return '<span class="inline-flex items-center justify-center rounded-full bg-blush px-4 py-2 text-sm font-bold leading-none text-espresso">' +
-        formatLabel(skin) +
-        '</span>';
+      return `
+        <span class="inline-flex items-center justify-center rounded-full bg-blush px-4 py-2 text-sm font-bold leading-none text-espresso">
+          ${formatLabel(skin)}
+        </span>
+      `;
     })
     .join("");
 
-  detailContent.innerHTML =
-    '<div class="grid gap-10 md:grid-cols-2 md:items-start">' +
+  detailContent.innerHTML = `
+    <div class="grid gap-10 md:grid-cols-2 md:items-start">
+      
+      <div class="overflow-hidden rounded-3xl bg-white shadow-sm">
+        <img 
+          src="${product.image}" 
+          alt="${product.name}" 
+          class="h-[420px] w-full object-cover"
+        >
+      </div>
 
-      '<div class="overflow-hidden rounded-3xl bg-white shadow-sm">' +
-        '<img src="' + safeText(product.image) + '" alt="' + safeText(product.name) + '" class="h-[420px] w-full object-cover">' +
-      '</div>' +
+      <div class="flex flex-col">
+        <p class="text-xs font-bold uppercase tracking-[.18em] text-terracotta">
+          ${formatLabel(product.category)}
+        </p>
 
-      '<div>' +
-        '<p class="text-sm font-bold uppercase tracking-[.22em] text-terracotta">' +
-          formatLabel(product.category) +
-        '</p>' +
+        <h2 class="mt-3 font-serif text-4xl text-cocoa">
+          ${product.name}
+        </h2>
 
-        '<h2 class="mt-3 font-serif text-4xl text-cocoa">' +
-          safeText(product.name) +
-        '</h2>' +
+        <p class="mt-5 leading-8 text-taupe">
+          ${product.description}
+        </p>
 
-        '<p class="mt-5 leading-8 text-taupe">' +
-          safeText(product.description) +
-        '</p>' +
+        <p class="mt-6 text-3xl font-bold text-terracotta">
+          ${formatRupiah(product.price)}
+        </p>
 
-        '<div class="mt-6">' +
-          '<p class="font-bold text-cocoa">Kandungan utama</p>' +
-          '<p class="mt-2 leading-7 text-taupe">' +
-            safeText(product.ingredients) +
-          '</p>' +
-        '</div>' +
+        <p class="mt-2 font-bold text-taupe">
+          Rating ${product.rating}/5
+        </p>
 
-        '<div class="mt-5">' +
-          '<p class="font-bold text-cocoa">Manfaat</p>' +
-          '<p class="mt-2 leading-7 text-taupe">' +
-            safeText(product.benefits) +
-          '</p>' +
-        '</div>' +
+        <div class="mt-5 flex flex-wrap items-center gap-2">
+          ${tags}
+        </div>
 
-        '<p class="mt-6 text-3xl font-bold text-terracotta">' +
-          formatRupiah(product.price) +
-        '</p>' +
+        <div class="mt-8 rounded-3xl bg-white/70 p-6">
+          <h3 class="font-serif text-2xl text-cocoa">Kandungan Utama</h3>
+          <p class="mt-3 leading-7 text-taupe">${product.ingredients}</p>
 
-        '<p class="mt-2 font-bold text-taupe">Rating ' +
-          product.rating +
-          '/5</p>' +
-
-        '<div class="mt-4 min-h-[44px] flex flex-wrap items-center gap-2">' +
-          tags +
-        '</div>' +
-
-        '<a href="detail.html?id=' + productIndex + '" class="mt-6 inline-flex w-full justify-center rounded-full bg-terracotta px-5 py-3 font-bold text-white transition hover:bg-espresso">Klik Detail</a>' +
-      '</div>' +
-
-    '</div>';
+          <h3 class="mt-6 font-serif text-2xl text-cocoa">Manfaat Produk</h3>
+          <p class="mt-3 leading-7 text-taupe">${product.benefits}</p>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function initReviewPage() {
